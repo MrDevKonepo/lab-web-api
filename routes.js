@@ -1,4 +1,5 @@
 const controller = require('./food-controller');
+const schema = require('./food-schema');
 
 const routes = [
     {
@@ -9,7 +10,10 @@ const routes = [
     {
         method: "POST",
         path: "/foods",
-        handler: controller.create
+        options: {
+            handler: controller.create,
+            validate: schema.postFood
+        }
     }
 ];
 
